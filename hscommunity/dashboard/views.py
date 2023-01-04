@@ -114,7 +114,7 @@ def EditArticle(request, id):
     ArticleList = Article.objects.get(id=id)
     if request.method == 'POST':
         ArticleList.language = request.POST.get('language')
-        ArticleList.image_one = request.POST.get('fb-image')
+        ArticleList.image_one = request.FILES('fb-image')
         # Article.image_two = request.POST.get('story-img')
         # Article.topic = request.POST.get('topic')
         # Article.title = request.POST.get('title')
