@@ -1,0 +1,275 @@
+{% extends 'dashboard/base/base.html' %}
+{% load static %}
+{% block title %}Add Post{% endblock title %}
+
+{% block body %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add Post</h1>
+    </div>
+    
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Add New Post</h6>
+        </div>
+        <div class="card-body post-body">
+            <form class="user" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Language<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control" name="language">
+                                <option>Select Language</option>
+                                {% for i in Languages %}
+                                <option>{{i.language_name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Image1<span class="red">*</span><br>
+                           <strong>Use:</strong> Article image,FB,Twitter,<br>
+                            Insta,WA posts and link previews<br>
+                            <strong>Recommended format:</strong> <br>
+                            Aspect Ratio: 16:9<br>
+                            Res:1920 x 1080 px</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="file" class="form-control" name="fb-image">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Image2<br>
+                            <strong>Use:</strong>News in pictures<br>
+                            <strong>Recommended format:</strong><br>
+                            Aspect Ratio: 4:5<br>
+                            Res:1080 x 1350 px</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="file" class="form-control" name="story-img">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Topic<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Topic" name="topic">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Title<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Title" name="title">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Short Description</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" name="short_des" placeholder="Enter Short Description"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Highlights</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea id="summernote" name="highlight" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Body<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea id="summernotebody" class="form-control" name="body"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Select Category<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group d-flex">
+                            {% for i in categories %}
+                            <div class="check-div"><input type="checkbox" name="category" value="{{i.category_name}}"> {{i.category_name}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Link<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                               <label class="link-label">https://www.hindusthansamachar.in/</label>   
+                               <textarea class="form-control link-box" name="urls_slog"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Author<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control" name="author">
+                                <option>Select Authors Name</option>
+                                {% for i in Authors %}
+                                <option>{{i.first_name}} {{i.last_name}}</option>
+                                {% endfor %}
+                            </select>                      
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Location</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="location" class="form-control" placeholder="Enter Location">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Add to</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="checkbox" name="add_to" value="Top"> Top  &nbsp;
+                            <input type="checkbox" name="add_to" value="Breaking"> Breaking
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Publish<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="checkbox" name="publish" value="Now"> Now  &nbsp;
+                            <input type="checkbox" name="publish" value="later"> Later
+                            <!----If Later then show below div-->
+                            <div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <input type="date" class="form-control">
+                                    <input type="time" class="form-control">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Set</button>
+                                <button type="reset" class="btn btn-danger">Cansel</button>
+                            </div>                 
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>
+                           <strong>Meta Title</strong> <br>
+                           Caption used for browser<br>
+                            tab name and title tag
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="meta_title" class="form-control" placeholder="Enter Meta Title">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>
+                           <strong>Meta Description</strong> <br>
+                           Description of the post used<br>
+                            in the meta description tag
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" name="meta_description" placeholder="Enter Meta Title"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Article Source<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control" name="source">
+                                {% for i in sources %}
+                                <option>{{i.source_name}}</option>
+                                {% endfor %}
+                            </select>                      
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <hr>
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <input type="submit" name="submit" value="Add" class="btn btn-success add-btn">
+                        <button type="reset" class="btn btn-danger">Cancel</button>
+                    </div>
+                </div>
+            </form> 
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+<!-- End of Main Content -->
+
+
+{% endblock body %}
+
+                
+           

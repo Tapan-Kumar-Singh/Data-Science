@@ -1,0 +1,104 @@
+{% extends 'dashboard/base/base.html' %}
+{% load static %}
+{% block title %}Add User{% endblock title %}
+
+{% block body %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add User</h1>
+    </div>
+    
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Add New User</h6>
+        </div>
+        <div class="card-body post-body">
+            <form class="user" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>First Name<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="first_name" class="form-control" placeholder="Enter First Name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Last Name<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="last_name" class="form-control" placeholder="Enter Last Name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Email ID<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="email" name="email_id" class="form-control" placeholder="Enter Email ID" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Contact Number<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="tel" class="form-control" name="contact_no" placeholder="Enter Contact Number" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Role<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select name="user_role" class="form-control" required>
+                                {% for i in UserRole %}
+                                <option>{{i.role_name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <hr>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" name="submit" value="Add" class="btn btn-success">
+                        <button type="reset" class="btn btn-danger">Cancel</button>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+<!-- End of Main Content -->
+
+
+{% endblock body %}
+
+                
+           

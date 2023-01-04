@@ -1,0 +1,275 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Post{% endblock title %}
+
+{% block body %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add Post</h1>
+    </div>
+    
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Add New Post</h6>
+        </div>
+        <div class="card-body post-body">
+            <form class="user">
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Language<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Hindi</option>
+                                <option>English</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Image1<span class="red">*</span><br>
+                           <strong>Use:</strong> Article image,FB,Twitter,<br>
+                            Insta,WA posts and link previews<br>
+                            <strong>Recommended format:</strong> <br>
+                            Aspect Ratio: 16:9<br>
+                            Res:1920 x 1080 px</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="file" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Image2<br>
+                            <strong>Use:</strong>News in pictures<br>
+                            <strong>Recommended format:</strong><br>
+                            Aspect Ratio: 4:5<br>
+                            Res:1080 x 1350 px</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="file" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Topic<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Topic">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Title<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Title">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Short Description</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" placeholder="Enter Short Description"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Highlights</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea id="summernote" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Body<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea id="summernotebody" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Select Category<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group d-flex">
+                            <div class="check-div"><input type="checkbox"> National</div>
+                            <div class="check-div"><input type="checkbox"> State</div>
+                            <div class="check-div"><input type="checkbox"> Odisha</div>
+                            <div class="check-div"><input type="checkbox"> Politics</div>
+                            <div class="check-div"><input type="checkbox"> Election</div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Link<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                               <label class="link-label">https://www.hindusthansamachar.in/</label>   
+                               <textarea class="form-control link-box"></textarea>                      
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Author<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Tapan Singh</option>
+                                <option>Amar Mohanta</option>
+                                <option>Tapan Singh</option>
+                                <option>Amar Mohanta</option>
+                            </select>                      
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Location</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Location">                   
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Add to</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="checkbox"> Top  &nbsp;               
+                            <input type="checkbox"> Breaking                 
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Publish<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="checkbox"> Now  &nbsp;               
+                            <input type="checkbox"> Later
+                            <!----If Later then show below div-->
+                            <div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <input type="date" class="form-control">
+                                    <input type="time" class="form-control">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Set</button>
+                                <button type="reset" class="btn btn-danger">Cansel</button>
+                            </div>                 
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>
+                           <strong>Meta Title</strong> <br>
+                           Caption used for browser<br>
+                            tab name and title tag
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Meta Title">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>
+                           <strong>Meta Description</strong> <br>
+                           Description of the post used<br>
+                            in the meta description tag
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Enter Meta Title"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                        <label>Article Source<span class="red">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>HS</option>
+                                <option>Other</option>
+                                <option>ANI</option>
+                            </select>                      
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <hr>
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-success add-btn">Add</button>
+                        <button type="reset" class="btn btn-danger">Cancel</button>
+                    </div>
+                </div>
+            </form> 
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+<!-- End of Main Content -->
+
+
+{% endblock body %}
+
+                
+           

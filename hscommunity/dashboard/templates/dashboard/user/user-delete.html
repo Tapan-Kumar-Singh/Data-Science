@@ -1,0 +1,57 @@
+{% extends 'dashboard/base/base.html' %}
+{% load static %}
+{% block title %}Add User{% endblock title %}
+
+{% block body %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add User</h1>
+    </div>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Delete User </h6>
+        </div>
+        <div class="card-body post-body">
+            <form class="user" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-8 m-auto">
+                        <h5 class="text-danger">Are you sure you want to delete The Following User ?</h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-8 m-auto">
+                        <b>Name:</b> {{user_list.first_name}} {{user_list.last_name}}<br><br>
+                        <b>Email Id:</b> {{user_list.email_id}}<br><br>
+                        <b>Contact Number:</b> {{user_list.contact_number}}<br><br>
+                        <b>User Roll:</b> {{user_list.roll}}<br><br>
+                    </div>
+                </div>
+                <div class="row align-items-baseline">
+                    <div class="col-md-4 text-right">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" name="submit" value="Yes" class="btn btn-success">
+                        <a href="/dashboard/user" class="btn btn-danger">Cancel</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+<!-- End of Main Content -->
+
+
+{% endblock body %}
+
+
