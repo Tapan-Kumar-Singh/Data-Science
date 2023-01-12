@@ -43,8 +43,8 @@ class AllUser(models.Model):
 
 class Article(models.Model):
     language = models.CharField(max_length=30)
-    image_one = models.ImageField(blank=True, upload_to='images/')
-    image_two = models.ImageField(blank=True, upload_to='images/')
+    image_one = models.ImageField(upload_to='images/', blank=True)
+    image_two = models.ImageField(upload_to='images/', blank=True)
     topic = models.CharField(max_length=100)
     title = models.CharField(max_length=60)
     short_description = models.CharField(max_length=500)

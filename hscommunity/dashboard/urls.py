@@ -13,4 +13,10 @@ urlpatterns = [
     path('posts/', views.AllPosts, name='all-posts'),
     path('add-article/', views.AddArticle, name='add-article'),
     path('edit-article/<int:id>/', views.EditArticle, name='edit-article'),
+
+    # Handle Archived Posts
+    path('archived-post/', views.ArchivedPosts, name='archived-posts'),
+
+    # Urls for handle Videos
+    path('videos/', views.Videos, name='videos'),
 ]
